@@ -21,7 +21,7 @@ public class CrawlerTask implements Runnable{
 
   public static void main(String[] args) {
     try {
-      URL url = new URL("https://en.wikipedia.org/wiki/Bromine");
+      URL url = new URL("https://www.espncricinfo.com/");
       HttpURLConnection connection = (HttpURLConnection) url.openConnection();
       connection.setRequestMethod("GET");
 
@@ -38,7 +38,7 @@ public class CrawlerTask implements Runnable{
         in.close();
 
         // print result
-        ArrayList<String> res = HTMLParser.getText(content.toString());
+        ArrayList<String> res = HTMLParser.getText(content.toString(),"https://www.espncricinfo.com/");
         for (String thing: res){
           System.out.println(thing);
         }
